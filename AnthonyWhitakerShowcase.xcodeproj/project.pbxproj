@@ -19,7 +19,10 @@
 		926D4C891DE625D1006AE761 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C851DE625D1006AE761 /* NotoSans-BoldItalic.ttf */; };
 		926D4C8A1DE625D1006AE761 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C861DE625D1006AE761 /* NotoSans-Italic.ttf */; };
 		926D4C8B1DE625D1006AE761 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C871DE625D1006AE761 /* NotoSans-Regular.ttf */; };
-		926D4C8E1DE62787006AE761 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D4C8D1DE62787006AE761 /* FBSDKLoginKit.framework */; };
+		926D4C921DE636B7006AE761 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C911DE636B7006AE761 /* MaterialView.swift */; };
+		926D4C951DE63751006AE761 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C941DE63751006AE761 /* Constants.swift */; };
+		926D4C971DE642E5006AE761 /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C961DE642E5006AE761 /* MaterialButton.swift */; };
+		926D4C991DE648A3006AE761 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C981DE648A3006AE761 /* MaterialTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,10 @@
 		926D4C871DE625D1006AE761 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
 		926D4C8D1DE62787006AE761 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../FacebookSDKs-iOS-4/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		926D4C8F1DE63469006AE761 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../FacebookSDKs-iOS-4/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		926D4C911DE636B7006AE761 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		926D4C941DE63751006AE761 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		926D4C961DE642E5006AE761 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		926D4C981DE648A3006AE761 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				926D4C8E1DE62787006AE761 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,15 +118,13 @@
 		926D4C4E1DE6248C006AE761 /* AnthonyWhitakerShowcase */ = {
 			isa = PBXGroup;
 			children = (
-				926D4C831DE62595006AE761 /* Resources */,
 				926D4C821DE6258F006AE761 /* Controller */,
-				926D4C811DE6258A006AE761 /* View */,
 				926D4C801DE62585006AE761 /* Model */,
+				926D4C831DE62595006AE761 /* Resources */,
+				926D4C931DE63743006AE761 /* Util */,
+				926D4C811DE6258A006AE761 /* View */,
 				926D4C4F1DE6248C006AE761 /* AppDelegate.swift */,
-				926D4C511DE6248C006AE761 /* ViewController.swift */,
-				926D4C531DE6248C006AE761 /* Main.storyboard */,
 				926D4C591DE6248C006AE761 /* Assets.xcassets */,
-				926D4C5B1DE6248C006AE761 /* LaunchScreen.storyboard */,
 				926D4C5E1DE6248C006AE761 /* Info.plist */,
 				926D4C561DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodeld */,
 			);
@@ -155,6 +159,11 @@
 		926D4C811DE6258A006AE761 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				926D4C5B1DE6248C006AE761 /* LaunchScreen.storyboard */,
+				926D4C531DE6248C006AE761 /* Main.storyboard */,
+				926D4C911DE636B7006AE761 /* MaterialView.swift */,
+				926D4C961DE642E5006AE761 /* MaterialButton.swift */,
+				926D4C981DE648A3006AE761 /* MaterialTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -162,6 +171,7 @@
 		926D4C821DE6258F006AE761 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				926D4C511DE6248C006AE761 /* ViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -184,6 +194,14 @@
 				926D4C8D1DE62787006AE761 /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		926D4C931DE63743006AE761 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				926D4C941DE63751006AE761 /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,9 +345,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926D4C951DE63751006AE761 /* Constants.swift in Sources */,
 				926D4C581DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodeld in Sources */,
+				926D4C971DE642E5006AE761 /* MaterialButton.swift in Sources */,
 				926D4C521DE6248C006AE761 /* ViewController.swift in Sources */,
 				926D4C501DE6248C006AE761 /* AppDelegate.swift in Sources */,
+				926D4C921DE636B7006AE761 /* MaterialView.swift in Sources */,
+				926D4C991DE648A3006AE761 /* MaterialTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
