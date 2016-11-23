@@ -15,6 +15,11 @@
 		926D4C5D1DE6248C006AE761 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C5B1DE6248C006AE761 /* LaunchScreen.storyboard */; };
 		926D4C681DE6248D006AE761 /* AnthonyWhitakerShowcaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C671DE6248D006AE761 /* AnthonyWhitakerShowcaseTests.swift */; };
 		926D4C731DE6248D006AE761 /* AnthonyWhitakerShowcaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C721DE6248D006AE761 /* AnthonyWhitakerShowcaseUITests.swift */; };
+		926D4C881DE625D1006AE761 /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C841DE625D1006AE761 /* NotoSans-Bold.ttf */; };
+		926D4C891DE625D1006AE761 /* NotoSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C851DE625D1006AE761 /* NotoSans-BoldItalic.ttf */; };
+		926D4C8A1DE625D1006AE761 /* NotoSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C861DE625D1006AE761 /* NotoSans-Italic.ttf */; };
+		926D4C8B1DE625D1006AE761 /* NotoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C871DE625D1006AE761 /* NotoSans-Regular.ttf */; };
+		926D4C8E1DE62787006AE761 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D4C8D1DE62787006AE761 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,12 @@
 		926D4C6E1DE6248D006AE761 /* AnthonyWhitakerShowcaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnthonyWhitakerShowcaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		926D4C721DE6248D006AE761 /* AnthonyWhitakerShowcaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnthonyWhitakerShowcaseUITests.swift; sourceTree = "<group>"; };
 		926D4C741DE6248D006AE761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		926D4C841DE625D1006AE761 /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
+		926D4C851DE625D1006AE761 /* NotoSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		926D4C861DE625D1006AE761 /* NotoSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Italic.ttf"; sourceTree = "<group>"; };
+		926D4C871DE625D1006AE761 /* NotoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Regular.ttf"; sourceTree = "<group>"; };
+		926D4C8D1DE62787006AE761 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "../../FacebookSDKs-iOS-4/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		926D4C8F1DE63469006AE761 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "../../FacebookSDKs-iOS-4/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926D4C8E1DE62787006AE761 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +95,7 @@
 				926D4C661DE6248D006AE761 /* AnthonyWhitakerShowcaseTests */,
 				926D4C711DE6248D006AE761 /* AnthonyWhitakerShowcaseUITests */,
 				926D4C4D1DE6248C006AE761 /* Products */,
+				926D4C8C1DE62786006AE761 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +112,10 @@
 		926D4C4E1DE6248C006AE761 /* AnthonyWhitakerShowcase */ = {
 			isa = PBXGroup;
 			children = (
+				926D4C831DE62595006AE761 /* Resources */,
+				926D4C821DE6258F006AE761 /* Controller */,
+				926D4C811DE6258A006AE761 /* View */,
+				926D4C801DE62585006AE761 /* Model */,
 				926D4C4F1DE6248C006AE761 /* AppDelegate.swift */,
 				926D4C511DE6248C006AE761 /* ViewController.swift */,
 				926D4C531DE6248C006AE761 /* Main.storyboard */,
@@ -126,6 +143,47 @@
 				926D4C741DE6248D006AE761 /* Info.plist */,
 			);
 			path = AnthonyWhitakerShowcaseUITests;
+			sourceTree = "<group>";
+		};
+		926D4C801DE62585006AE761 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		926D4C811DE6258A006AE761 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		926D4C821DE6258F006AE761 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		926D4C831DE62595006AE761 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				926D4C841DE625D1006AE761 /* NotoSans-Bold.ttf */,
+				926D4C851DE625D1006AE761 /* NotoSans-BoldItalic.ttf */,
+				926D4C861DE625D1006AE761 /* NotoSans-Italic.ttf */,
+				926D4C871DE625D1006AE761 /* NotoSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		926D4C8C1DE62786006AE761 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				926D4C8F1DE63469006AE761 /* FBSDKCoreKit.framework */,
+				926D4C8D1DE62787006AE761 /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +296,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				926D4C881DE625D1006AE761 /* NotoSans-Bold.ttf in Resources */,
 				926D4C5D1DE6248C006AE761 /* LaunchScreen.storyboard in Resources */,
+				926D4C891DE625D1006AE761 /* NotoSans-BoldItalic.ttf in Resources */,
+				926D4C8A1DE625D1006AE761 /* NotoSans-Italic.ttf in Resources */,
 				926D4C5A1DE6248C006AE761 /* Assets.xcassets in Resources */,
 				926D4C551DE6248C006AE761 /* Main.storyboard in Resources */,
+				926D4C8B1DE625D1006AE761 /* NotoSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
