@@ -49,20 +49,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmQ-I0-xPN" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
                                 <rect key="frame" x="16" y="74" width="343" height="128"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnH-wS-4Y7" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="96" y="46.5" width="151" height="36"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
-                                        <state key="normal" title="FACEBOOK LOGIN">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zmG-Jy-DF7">
+                                        <rect key="frame" x="96" y="21" width="151" height="86"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnH-wS-4Y7" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="151" height="36"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
+                                                <state key="normal" title="FACEBOOK LOGIN">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBN-Qr-lh0" customClass="FBSDKLoginButton">
+                                                <rect key="frame" x="0.0" y="56" width="151" height="30"/>
+                                                <state key="normal" title="Facebook Login"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="jnH-wS-4Y7" firstAttribute="centerY" secondItem="SmQ-I0-xPN" secondAttribute="centerY" id="FJM-sl-8Yp"/>
-                                    <constraint firstItem="jnH-wS-4Y7" firstAttribute="centerX" secondItem="SmQ-I0-xPN" secondAttribute="centerX" id="PgT-qJ-oat"/>
+                                    <constraint firstItem="zmG-Jy-DF7" firstAttribute="centerY" secondItem="SmQ-I0-xPN" secondAttribute="centerY" id="JGg-fj-ge0"/>
                                     <constraint firstAttribute="height" constant="128" id="au1-HE-1SI"/>
+                                    <constraint firstItem="zmG-Jy-DF7" firstAttribute="centerX" secondItem="SmQ-I0-xPN" secondAttribute="centerX" id="zkg-8m-JL9"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6iy-SB-G2z" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
@@ -100,7 +109,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-1Q-I8i" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="104" y="208" width="135" height="36"/>
+                                        <rect key="frame" x="104" y="207.5" width="135" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                         <state key="normal" title="Login / Register">
@@ -135,6 +144,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="SmQ-I0-xPN" secondAttribute="trailing" id="yzU-dH-wVL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="facebookLogin" destination="CBN-Qr-lh0" id="D2Q-Lt-CAU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
