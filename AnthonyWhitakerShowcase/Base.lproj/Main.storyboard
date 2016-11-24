@@ -86,7 +86,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iOW-qe-3ns">
                                         <rect key="frame" x="20" y="67.5" width="303" height="90"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5II-yM-Nfg" customClass="MaterialTextField" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="5II-yM-Nfg" customClass="MaterialTextField" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="303" height="35"/>
                                                 <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -94,7 +94,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="syh-w4-cvv" customClass="MaterialTextField" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="55" width="303" height="35"/>
@@ -104,7 +104,7 @@
                                                 </constraints>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -115,6 +115,9 @@
                                         <state key="normal" title="Login / Register">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="emailSignInAttempted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qey-9U-Pdc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,12 +148,45 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailAddressField" destination="5II-yM-Nfg" id="mQ1-Oc-m5D"/>
                         <outlet property="facebookLogin" destination="CBN-Qr-lh0" id="D2Q-Lt-CAU"/>
+                        <outlet property="passwordField" destination="syh-w4-cvv" id="GH1-oE-oGr"/>
+                        <segue destination="SMh-6v-Ay2" kind="show" identifier="loggedIn" id="irQ-fU-dOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mlV-gz-qPX">
+            <objects>
+                <viewController id="SMh-6v-Ay2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pnK-Y0-YMI"/>
+                        <viewControllerLayoutGuide type="bottom" id="p1H-U2-xDv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lmC-G4-2tj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Main Page of App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rb0-pQ-WIE">
+                                <rect key="frame" x="32.5" y="309.5" width="310.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rb0-pQ-WIE" firstAttribute="centerX" secondItem="lmC-G4-2tj" secondAttribute="centerX" id="LKY-uP-Qss"/>
+                            <constraint firstItem="rb0-pQ-WIE" firstAttribute="centerY" secondItem="lmC-G4-2tj" secondAttribute="centerY" id="xXx-34-kgt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="blT-E8-Jh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.60000000000002" y="123.68815592203899"/>
         </scene>
     </scenes>
 </document>
