@@ -6,7 +6,6 @@ target 'AnthonyWhitakerShowcase' do
 
   # Pods for AnthonyWhitakerShowcase
   pod 'Firebase/Core', :inhibit_warnings => true
-  pod 'Firebase/Auth'
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
