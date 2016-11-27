@@ -6,9 +6,11 @@ target 'AnthonyWhitakerShowcase' do
 
   # Pods for AnthonyWhitakerShowcase
   pod 'Firebase/Core', :inhibit_warnings => true
+  pod 'Firebase/Auth', :inhibit_warnings => true
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
 
   target 'AnthonyWhitakerShowcaseTests' do
     inherit! :search_paths
