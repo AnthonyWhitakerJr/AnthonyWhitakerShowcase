@@ -19,10 +19,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Log In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnthonyWhitakerShowcase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LogInViewController" customModule="AnthonyWhitakerShowcase" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -306,14 +306,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blT-E8-Jh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1840.8" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1682" y="124"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gjf-g4-YZ1">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O5l-SG-vNh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Irx-Wu-5Bj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Irx-Wu-5Bj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>

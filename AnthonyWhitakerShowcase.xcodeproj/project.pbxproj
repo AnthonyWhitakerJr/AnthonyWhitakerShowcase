@@ -10,7 +10,7 @@
 		3BDE4ED8CE703623AF38005E /* Pods_AnthonyWhitakerShowcaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D30130D3924A38128197C0 /* Pods_AnthonyWhitakerShowcaseUITests.framework */; };
 		8236E096B7FD60E4C3C41528 /* Pods_AnthonyWhitakerShowcase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15AB360C7D925FE5EC4C694 /* Pods_AnthonyWhitakerShowcase.framework */; };
 		926D4C501DE6248C006AE761 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C4F1DE6248C006AE761 /* AppDelegate.swift */; };
-		926D4C521DE6248C006AE761 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C511DE6248C006AE761 /* ViewController.swift */; };
+		926D4C521DE6248C006AE761 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C511DE6248C006AE761 /* LogInViewController.swift */; };
 		926D4C551DE6248C006AE761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C531DE6248C006AE761 /* Main.storyboard */; };
 		926D4C581DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C561DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodeld */; };
 		926D4C5A1DE6248C006AE761 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C591DE6248C006AE761 /* Assets.xcassets */; };
@@ -57,7 +57,7 @@
 		795D34A9CDE3814BAA0FD4F1 /* Pods-AnthonyWhitakerShowcaseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnthonyWhitakerShowcaseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnthonyWhitakerShowcaseUITests/Pods-AnthonyWhitakerShowcaseUITests.release.xcconfig"; sourceTree = "<group>"; };
 		926D4C4C1DE6248C006AE761 /* AnthonyWhitakerShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnthonyWhitakerShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926D4C4F1DE6248C006AE761 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		926D4C511DE6248C006AE761 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		926D4C511DE6248C006AE761 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		926D4C541DE6248C006AE761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		926D4C571DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AnthonyWhitakerShowcase.xcdatamodel; sourceTree = "<group>"; };
 		926D4C591DE6248C006AE761 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 		926D4C821DE6258F006AE761 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				926D4C511DE6248C006AE761 /* ViewController.swift */,
+				926D4C511DE6248C006AE761 /* LogInViewController.swift */,
 				92D856B51DE77E01009F35B1 /* FeedViewController.swift */,
 			);
 			name = Controller;
@@ -521,7 +521,7 @@
 				926D4C951DE63751006AE761 /* Constants.swift in Sources */,
 				926D4C581DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodeld in Sources */,
 				926D4C971DE642E5006AE761 /* MaterialButton.swift in Sources */,
-				926D4C521DE6248C006AE761 /* ViewController.swift in Sources */,
+				926D4C521DE6248C006AE761 /* LogInViewController.swift in Sources */,
 				926D4C501DE6248C006AE761 /* AppDelegate.swift in Sources */,
 				926D4C921DE636B7006AE761 /* MaterialView.swift in Sources */,
 				92D856B61DE77E01009F35B1 /* FeedViewController.swift in Sources */,

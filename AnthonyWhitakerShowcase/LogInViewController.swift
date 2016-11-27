@@ -10,7 +10,7 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 
-class ViewController: UIViewController {
+class LogInViewController: UIViewController {
     
     @IBOutlet weak var facebookLogin: FBSDKLoginButton!
     
@@ -88,7 +88,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController : FBSDKLoginButtonDelegate {
+extension LogInViewController : FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let error = error {
             print(error.localizedDescription)
