@@ -226,8 +226,8 @@
 		926D4C931DE63743006AE761 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				926D4C941DE63751006AE761 /* Constants.swift */,
 				92D856B91DEA7804009F35B1 /* AnthonyWhitakerShowcase-Bridging-Header.h */,
+				926D4C941DE63751006AE761 /* Constants.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";

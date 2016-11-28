@@ -50,21 +50,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SmQ-I0-xPN" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
                                 <rect key="frame" x="16" y="74" width="343" height="128"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zmG-Jy-DF7">
-                                        <rect key="frame" x="96" y="21" width="151" height="86"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zmG-Jy-DF7">
+                                        <rect key="frame" x="51" y="8" width="240" height="100"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnH-wS-4Y7" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="151" height="36"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
-                                                <state key="normal" title="FACEBOOK LOGIN">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBN-Qr-lh0" customClass="FBSDKLoginButton">
-                                                <rect key="frame" x="0.0" y="56" width="151" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBN-Qr-lh0" customClass="FBSDKLoginButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="30"/>
                                                 <state key="normal" title="Facebook Login"/>
                                             </button>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rfe-J7-8p1" customClass="GIDSignInButton">
+                                                <rect key="frame" x="0.0" y="50" width="240" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -110,7 +106,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-1Q-I8i" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="104" y="207.5" width="135" height="36"/>
+                                        <rect key="frame" x="104.5" y="207.5" width="135" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                         <state key="normal" title="Login / Register">
@@ -176,10 +172,10 @@
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="278" id="Djm-Xs-0xy" customClass="PostTableViewCell" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="278"/>
+                                        <rect key="frame" x="0.0" y="28" width="560" height="278"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Djm-Xs-0xy" id="ygh-Cl-yQq">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="278"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="278"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEN-FT-yD1" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">

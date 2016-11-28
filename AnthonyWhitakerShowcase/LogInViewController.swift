@@ -9,8 +9,9 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import GoogleSignIn
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var facebookLogin: FBSDKLoginButton!
     
@@ -19,12 +20,22 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         facebookLogin.delegate = self
         
         if FBSDKAccessToken.current() != nil {
             print("User logged in to Facebook already")
         }
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+        
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance().signInSilently()
+        
+        // TODO(developer) Configure the sign-in button look/feel
+        // ...
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,6 +117,28 @@ extension LogInViewController : FBSDKLoginButtonDelegate {
     }
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
+    }
+}
+
+extension LogInViewController : GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
+        
+        let authentication = user.authentication
+        let credential = FIRGoogleAuthProvider.credential(withIDToken: (authentication?.idToken)!,
+                                                          accessToken: (authentication?.accessToken)!)
+        
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            self.signIn(as: user)
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
 }
 
