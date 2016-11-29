@@ -46,6 +46,9 @@ class FeedViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        // Potentially dispose of extra posts.
+        // May have issue with several large images being scaled down.
+        // TODO: Ensure images are scaled properly before being uploaded/downloaded.
     }
     
 
@@ -75,6 +78,11 @@ extension FeedViewController: UITableViewDataSource {
         let post = posts[indexPath.row]
         print(post.postDescription)
         
-        return tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostTableViewCell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostTableViewCell {
+            cell.configureCell(post)
+            return cell
+        }
+        
+        return PostTableViewCell()
     }
 }

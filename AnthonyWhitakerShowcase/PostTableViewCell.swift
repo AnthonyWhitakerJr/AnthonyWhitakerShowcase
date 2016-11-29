@@ -17,12 +17,16 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var postImage: UIImageView!
     
+    var post: Post!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
     func configureCell(_ post: Post) {
+        self.post = post
+        
         userNameLabel.text = post.username
         likeCountLabel.text = "\(post.likes)"
         postText.text = post.postDescription

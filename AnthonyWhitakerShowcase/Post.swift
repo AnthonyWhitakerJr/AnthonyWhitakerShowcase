@@ -12,7 +12,7 @@ class Post {
     private var _postDescription: String
     private var _imageUrl: String?
     private var _likes: Int
-    private var _username: String
+    private var _username: String // XXX: Should probably be uid.
     private var _postKey: String!
     
     var postDescription: String {
@@ -55,9 +55,9 @@ class Post {
         if let username = username, let description = description, let likes = likes {
             self.init(username: username, description: description, imageUrl: imageUrl, likes: likes)
             self._postKey = postKey
+        } else {
+            return nil
         }
-        
-        return nil
     }
 
 }
