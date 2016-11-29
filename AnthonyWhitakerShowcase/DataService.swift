@@ -76,7 +76,10 @@ class DataService {
     
     func save(image: Data, as postKey: String, completion: @escaping (_ url: URL?,_ error: Error?) -> ()) {
         let imageRef = REF_IMAGES.child("\(postKey).jpg")
-        imageRef.put(image, metadata: nil, completion: { metadata, error in
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        imageRef.put(image, metadata: metadata, completion: { metadata, error in
             if let error = error {
                 completion(nil, error)
             } else if let metadata = metadata {
