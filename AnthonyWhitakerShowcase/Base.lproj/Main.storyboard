@@ -106,7 +106,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-1Q-I8i" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="104.5" y="207.5" width="135" height="36"/>
+                                        <rect key="frame" x="104" y="207.5" width="135" height="36"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="17"/>
                                         <state key="normal" title="Login / Register">
@@ -167,8 +167,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-Gl-q7j" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
+                                <rect key="frame" x="16" y="64" width="343" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h8G-g3-8jn">
+                                        <rect key="frame" x="8" y="8" width="327" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Talk about your app." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-am-7iS" customClass="MaterialTextField" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="217" height="34"/>
+                                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="46m-Bd-mCk">
+                                                <rect key="frame" x="227" y="0.0" width="40" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="40" id="A77-cG-bGX"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0b-xo-V5h" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
+                                                <rect key="frame" x="277" y="0.0" width="50" height="34"/>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="gq1-S8-Jo5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NotoSans-Bold" family="Noto Sans" pointSize="14"/>
+                                                <state key="normal" title="POST">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="h8G-g3-8jn" secondAttribute="trailing" id="0zy-Cu-5Pt"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="h8G-g3-8jn" secondAttribute="bottom" id="LCd-q6-04P"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qb0-J2-DOL"/>
+                                    <constraint firstItem="h8G-g3-8jn" firstAttribute="top" secondItem="fD6-Gl-q7j" secondAttribute="topMargin" id="VfG-Zk-GlP"/>
+                                    <constraint firstItem="h8G-g3-8jn" firstAttribute="leading" secondItem="fD6-Gl-q7j" secondAttribute="leadingMargin" id="oJS-jl-B6e"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="278" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GtC-Pg-ver">
-                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <rect key="frame" x="16" y="122" width="343" height="545"/>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="postCell" id="Djm-Xs-0xy" customClass="PostTableViewCell" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
@@ -284,9 +326,12 @@
                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="GtC-Pg-ver" firstAttribute="leading" secondItem="lmC-G4-2tj" secondAttribute="leadingMargin" id="1ER-OK-vyI"/>
+                            <constraint firstItem="GtC-Pg-ver" firstAttribute="top" secondItem="fD6-Gl-q7j" secondAttribute="bottom" constant="8" id="5g9-tg-VWd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fD6-Gl-q7j" secondAttribute="trailing" id="bDd-iH-bYz"/>
                             <constraint firstItem="p1H-U2-xDv" firstAttribute="top" secondItem="GtC-Pg-ver" secondAttribute="bottom" id="bbj-PO-opW"/>
-                            <constraint firstItem="GtC-Pg-ver" firstAttribute="top" secondItem="pnK-Y0-YMI" secondAttribute="bottom" id="iD2-5r-ln3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GtC-Pg-ver" secondAttribute="trailing" id="iWL-WL-3aI"/>
+                            <constraint firstItem="fD6-Gl-q7j" firstAttribute="top" secondItem="pnK-Y0-YMI" secondAttribute="bottom" id="lXQ-83-jT9"/>
+                            <constraint firstItem="fD6-Gl-q7j" firstAttribute="leading" secondItem="lmC-G4-2tj" secondAttribute="leadingMargin" id="zSm-9B-5ty"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j4e-V9-70b"/>
@@ -296,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blT-E8-Jh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1682" y="124"/>
+            <point key="canvasLocation" x="1680.8" y="123.68815592203899"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Gjf-g4-YZ1">
@@ -319,6 +364,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera" width="110" height="82"/>
         <image name="favoriteIcon" width="25" height="22"/>
         <image name="profile" width="648" height="648"/>
         <image name="screen" width="1242" height="2208"/>
