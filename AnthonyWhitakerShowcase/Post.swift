@@ -9,15 +9,14 @@
 import Foundation
 
 class Post {
-    private var _postDescription: String
+
     private var _imageUrl: String?
     private var _likes: Int
-    private var _username: String // XXX: Should probably be uid.
+    private var _postDescription: String
     private var _postKey: String!
-    
-    var postDescription: String {
-        return _postDescription
-    }
+    private var _timestamp: Int!
+    private var _uid: String!
+    private var _username: String // TODO: Should be replaced by uid
     
     var imageUrl: String? {
         return _imageUrl
@@ -27,12 +26,24 @@ class Post {
         return _likes
     }
     
-    var username: String {
-        return _username
+    var postDescription: String {
+        return _postDescription
     }
     
     var postKey: String {
         return _postKey
+    }
+    
+    var timestamp: Int {
+        return _timestamp
+    }
+    
+    var uid: String {
+        return _uid
+    }
+    
+    var username: String {
+        return _username
     }
     
     init(username: String, description: String, imageUrl: String? = nil, likes: Int = 0) {//, postKey: String) {
