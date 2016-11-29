@@ -172,10 +172,10 @@
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="278" id="Djm-Xs-0xy" customClass="PostTableViewCell" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="560" height="278"/>
+                                        <rect key="frame" x="0.0" y="28" width="343" height="278"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Djm-Xs-0xy" id="ygh-Cl-yQq">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="278"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="278"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEN-FT-yD1" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
@@ -242,19 +242,9 @@
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                                     <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                                                 </textView>
-                                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oB3-w3-ILW">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen" translatesAutoresizingMaskIntoConstraints="NO" id="uYO-4y-k00">
                                                                     <rect key="frame" x="0.0" y="160" width="327" height="86"/>
-                                                                    <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="screen" translatesAutoresizingMaskIntoConstraints="NO" id="uYO-4y-k00">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="327" height="85"/>
-                                                                        </imageView>
-                                                                    </subviews>
-                                                                    <constraints>
-                                                                        <constraint firstItem="uYO-4y-k00" firstAttribute="width" secondItem="oB3-w3-ILW" secondAttribute="width" id="Lk4-Sj-7f6"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="uYO-4y-k00" secondAttribute="bottom" id="Szt-8d-PpZ"/>
-                                                                        <constraint firstItem="uYO-4y-k00" firstAttribute="top" secondItem="oB3-w3-ILW" secondAttribute="top" id="l8B-tu-5Wg"/>
-                                                                    </constraints>
-                                                                </scrollView>
+                                                                </imageView>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -309,7 +299,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O5l-SG-vNh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Irx-Wu-5Bj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Irx-Wu-5Bj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
