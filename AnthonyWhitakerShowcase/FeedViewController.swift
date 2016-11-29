@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
         feedTableView.dataSource = self
         
         DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
-            if snapshot.value != nil {
+            if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous updates from other users.
                 print(snapshot.value!)
                 self.feedTableView.reloadData()
             }
