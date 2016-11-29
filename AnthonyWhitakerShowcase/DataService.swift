@@ -53,23 +53,29 @@ class DataService {
         REF_USERS.child(uid).setValue(user)
     }
     
-    func save(image: Data, with postKey: String) -> URL? {
-        let imageRef = REF_IMAGES.child(postKey)
-        var downloadUrl: URL? = nil
-        imageRef.put(image, metadata: nil, completion: { metadata, error in
-            if let error = error {
-                print(error) // We have a problem
-            } else if let metadata = metadata {
-                downloadUrl = metadata.downloadURL()
+    //TODO: Add completion handler for errors & updating UI
+    func createPost(postDescription: String, postImage: Data?) {
+        let postRef = REF_POSTS.childByAutoId()
+        let postKey = postRef.key
+        
+        var imageUrl: URL? = nil
+        
+        if let postImage = postImage {
+            imageUrl = DataService.instance.save(image: postImage, as: postKey)
+            if imageUrl == nil {
+                 // Image did not upload correctly. Throw error.
             }
-        })
-        return downloadUrl
+        }
+        
+        let post = Post(username: "Bob the Tester", description: postDescription, imageUrl: imageUrl?.absoluteString)
+        postRef.setValue(post.asDictionary)
     }
     
-    func save(image: URL, with postKey: String) -> URL? {
-        let imageRef = REF_IMAGES.child(postKey)
+    //TODO: Add completion handler for errors
+    func save(image: Data, as postKey: String) -> URL? {
+        let imageRef = REF_IMAGES.child("\(postKey).jpg")
         var downloadUrl: URL? = nil
-        imageRef.putFile(image, metadata: nil, completion: { metadata, error in
+        imageRef.put(image, metadata: nil, completion: { metadata, error in
             if let error = error {
                 print(error) // We have a problem
             } else if let metadata = metadata {

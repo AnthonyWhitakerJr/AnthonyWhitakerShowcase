@@ -6,6 +6,8 @@
 //  Copyright © 2016 Anthony Whitaker. All rights reserved.
 //
 
+// Image Shack API Key: 12DJKPSU5fc3afbd01b1630cc718cae3043220f3
+
 import UIKit
 import FirebaseDatabase
 
@@ -34,6 +36,7 @@ class FeedViewController: UIViewController {
         DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous updates from other users.
                 print(snapshot.value!)
+                self.posts.removeAll()
                 
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {
@@ -58,6 +61,23 @@ class FeedViewController: UIViewController {
     }
 
     @IBAction func makePost(_ sender: UIButton) {
+        if let postText = postEntryText.text, !postText.isEmpty {
+            var imageData: Data? = nil
+            
+            if let postImage = postEntryImage.image, postImage != #imageLiteral(resourceName: "camera") {
+                imageData = UIImageJPEGRepresentation(postImage, 0.2)
+            }
+            
+            DataService.instance.createPost(postDescription: postText, postImage: imageData)
+            
+            resetPostEntryFields()
+        }
+    }
+    
+    func resetPostEntryFields() {
+        postEntryText.text = ""
+        postEntryImage.image = #imageLiteral(resourceName: "camera")
+        feedTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {

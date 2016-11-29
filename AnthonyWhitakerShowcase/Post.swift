@@ -46,6 +46,26 @@ class Post {
         return _username
     }
     
+    var hasImage: Bool {
+        return imageUrl != nil
+    }
+    
+    var asDictionary: Dictionary<String, Any> {
+        var result: Dictionary<String, Any> = [
+            "username": username,
+            "description": postDescription,
+            "likes": likes
+//            "timestamp": timestamp,
+//            "uid": uid
+        ]
+        
+        if hasImage {
+            result["imageUrl"] = imageUrl
+        }
+        
+        return result
+    }
+    
     init(username: String, description: String, imageUrl: String? = nil, likes: Int = 0) {//, postKey: String) {
         _username = username
         _postDescription = description
@@ -70,5 +90,7 @@ class Post {
             return nil
         }
     }
+    
+    
 
 }
