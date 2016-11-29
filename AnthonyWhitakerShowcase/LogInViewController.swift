@@ -39,9 +39,9 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         
         // Check if user is already logged in.
         //TODO: Refactor. Does not account for expired sessions or logging out. Replace with silent login attempt.
-//        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
-//            self.performSegue(withIdentifier: Segue.loggedIn.rawValue, sender: nil)
-//        }
+        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
+            self.performSegue(withIdentifier: Segue.loggedIn.rawValue, sender: nil)
+        }
     }
     
     @IBAction func emailSignInAttempted(_ sender: UIButton) {
