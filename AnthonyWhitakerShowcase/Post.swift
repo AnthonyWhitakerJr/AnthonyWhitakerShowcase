@@ -10,6 +10,15 @@ import Foundation
 
 class Post {
 
+    enum DataKey: String {
+        case username
+        case description
+        case imageUrl
+        case likes
+        case uid
+        case timestamp
+    }
+    
     private var _imageUrl: String?
     private var _likes: Int
     private var _postDescription: String
@@ -52,15 +61,15 @@ class Post {
     
     var asDictionary: Dictionary<String, Any> {
         var result: Dictionary<String, Any> = [
-            "username": username,
-            "description": postDescription,
-            "likes": likes
-//            "timestamp": timestamp,
-//            "uid": uid
+            DataKey.username.rawValue: username,
+            DataKey.description.rawValue: postDescription,
+            DataKey.likes.rawValue: likes
+//            DataKey.timestamp.rawValue: timestamp,
+//            DataKey.uid.rawValue: uid
         ]
         
         if hasImage {
-            result["imageUrl"] = imageUrl
+            result[DataKey.imageUrl.rawValue] = imageUrl
         }
         
         return result
@@ -78,10 +87,10 @@ class Post {
     /// Used to create a Post based on an entry in Firebase database.
     /// - returns `nil` if data is incomplete, corrupt or malformed.
     convenience init?(postKey: String, data: Dictionary<String, Any>) {
-        let username = data["username"] as? String
-        let description = data["description"] as? String
-        let imageUrl = data["imageUrl"] as? String
-        let likes = data["likes"] as? Int
+        let username = data[DataKey.username.rawValue] as? String
+        let description = data[DataKey.description.rawValue] as? String
+        let imageUrl = data[DataKey.imageUrl.rawValue] as? String
+        let likes = data[DataKey.likes.rawValue] as? Int
         
         if let username = username, let description = description, let likes = likes {
             self.init(username: username, description: description, imageUrl: imageUrl, likes: likes)
