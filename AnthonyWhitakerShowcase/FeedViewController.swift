@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class FeedViewController: UIViewController {
     
@@ -17,6 +18,13 @@ class FeedViewController: UIViewController {
 
         feedTableView.delegate = self
         feedTableView.dataSource = self
+        
+        DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
+            if snapshot.value != nil {
+                print(snapshot.value!)
+                self.feedTableView.reloadData()
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
