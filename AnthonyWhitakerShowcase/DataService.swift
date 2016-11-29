@@ -52,11 +52,16 @@ class DataService {
     var REF_IMAGES_PROFILES : FIRStorageReference {
         return _REF_IMAGES_PROFILES
     }
-//    
-//    var REF_USER_CURRENT: Any {
-//        var user = FIRAuth.auth()?.currentUser
-//        
-//    }
+    
+    /// Database reference for current user's data. Returns `nil` if user is not logged in.
+    var REF_USER_CURRENT: FIRDatabaseReference? {
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        if let uid = uid {
+            return REF_USERS.child(uid)
+        }
+        
+        return nil
+    }
     
     private init() {
         _REF_DATABASE = FIRDatabase.database().reference()
@@ -91,6 +96,15 @@ class DataService {
             let post = Post(username: "Bob the Tester", description: postDescription, imageUrl: nil)
             postRef.setValue(post.asDictionary)
         }
+    }
+    
+    func isLikedByCurrentUser(post: Post) -> Bool {
+        var result = false
+        let likeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
+        likeRef?.observeSingleEvent(of: .value , with: { snapshot in
+            result = (snapshot.value as? NSNull) != nil
+        })
+        return result
     }
     
     func save(profileImage image: Data, as profileKey: String, completion: @escaping (_ url: URL?,_ error: Error?) -> ()) {
