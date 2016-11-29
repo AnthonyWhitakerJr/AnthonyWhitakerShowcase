@@ -170,21 +170,25 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-Gl-q7j" customClass="MaterialView" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
                                 <rect key="frame" x="16" y="64" width="343" height="50"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h8G-g3-8jn">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="h8G-g3-8jn">
                                         <rect key="frame" x="8" y="8" width="327" height="34"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Talk about your app." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iv0-am-7iS" customClass="MaterialTextField" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="217" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="227" height="34"/>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="NotoSans" family="Noto Sans" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="46m-Bd-mCk">
-                                                <rect key="frame" x="227" y="0.0" width="40" height="34"/>
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="46m-Bd-mCk">
+                                                <rect key="frame" x="232" y="0.0" width="40" height="34"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="A77-cG-bGX"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="wGG-wd-iJE" appends="YES" id="9Ks-mw-PDF"/>
+                                                </connections>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0b-xo-V5h" customClass="MaterialButton" customModule="AnthonyWhitakerShowcase" customModuleProvider="target">
                                                 <rect key="frame" x="277" y="0.0" width="50" height="34"/>
@@ -196,6 +200,9 @@
                                                 <state key="normal" title="POST">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="makePost:" destination="SMh-6v-Ay2" eventType="touchUpInside" id="kxp-Xd-31S"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -242,7 +249,7 @@
                                                                             <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoriteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-R8-01f">
+                                                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoriteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CNf-R8-01f">
                                                                             <rect key="frame" x="227" y="0.0" width="50" height="50"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" secondItem="CNf-R8-01f" secondAttribute="height" multiplier="1:1" id="sGx-s8-Y81"/>
@@ -337,9 +344,16 @@
                     <navigationItem key="navigationItem" id="j4e-V9-70b"/>
                     <connections>
                         <outlet property="feedTableView" destination="GtC-Pg-ver" id="Dp4-SE-LuV"/>
+                        <outlet property="postEntryImage" destination="46m-Bd-mCk" id="SC2-mF-oQ3"/>
+                        <outlet property="postEntryText" destination="iv0-am-7iS" id="FYu-LK-6mU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blT-E8-Jh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wGG-wd-iJE">
+                    <connections>
+                        <action selector="selectMedia:" destination="SMh-6v-Ay2" id="QRV-OX-RSn"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1680.8" y="123.68815592203899"/>
         </scene>

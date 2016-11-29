@@ -11,17 +11,24 @@ import FirebaseDatabase
 
 class FeedViewController: UIViewController {
     
+    @IBOutlet weak var postEntryText: MaterialTextField!
+    @IBOutlet weak var postEntryImage: UIImageView!
     @IBOutlet weak var feedTableView: UITableView!
-    var posts = [Post]()
+    
     static var imageCache = NSCache<NSString, UIImage>()
+    var posts = [Post]()
 
+    var imagePicker: UIImagePickerController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         feedTableView.delegate = self
         feedTableView.dataSource = self
-        
         feedTableView.estimatedRowHeight = 300
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
         // FIXME: Loads every post ever made. Limit to most recent posts.
         DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
@@ -45,7 +52,14 @@ class FeedViewController: UIViewController {
             }
         })
     }
+    
+    @IBAction func selectMedia(_ sender: UITapGestureRecognizer) {
+        present(imagePicker, animated: true)
+    }
 
+    @IBAction func makePost(_ sender: UIButton) {
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -106,4 +120,17 @@ extension FeedViewController: UITableViewDataSource {
         
         return PostTableViewCell()
     }
+}
+
+extension FeedViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true)
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            postEntryImage.image = image
+        }
+    }
+}
+
+extension FeedViewController: UINavigationControllerDelegate {
+    
 }
