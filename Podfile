@@ -1,5 +1,4 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '10.0'
 
 target 'AnthonyWhitakerShowcase' do
   use_frameworks!
@@ -12,6 +11,7 @@ target 'AnthonyWhitakerShowcase' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
+  pod 'Alamofire', '~> 4.0'
 
   target 'AnthonyWhitakerShowcaseTests' do
     inherit! :search_paths
