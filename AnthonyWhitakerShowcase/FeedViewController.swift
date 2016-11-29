@@ -40,8 +40,6 @@ class FeedViewController: UIViewController {
                 
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for snap in snapshots {
-                        print("SNAP: \(snap)")
-                        
                         if let postData = snap.value as? Dictionary<String, Any> {
                             let postKey = snap.key
                             if let post = Post(postKey: postKey, data: postData) {
@@ -50,8 +48,14 @@ class FeedViewController: UIViewController {
                         }
                     }
                 }
+                
+                self.feedTableView.reloadData()
             }
         })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        feedTableView.reloadData()
     }
     
     @IBAction func selectMedia(_ sender: UITapGestureRecognizer) {
@@ -121,7 +125,6 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
-        print(post.postDescription)
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostTableViewCell {
             cell.request?.cancel()
