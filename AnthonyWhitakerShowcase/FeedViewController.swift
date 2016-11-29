@@ -50,8 +50,6 @@ class FeedViewController: UIViewController {
                         }
                     }
                 }
-                  
-                self.feedTableView.reloadData()
             }
         })
     }

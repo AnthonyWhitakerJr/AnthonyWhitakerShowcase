@@ -54,34 +54,34 @@ class DataService {
     }
     
     //TODO: Add completion handler for errors & updating UI
+    //TODO: Remove code duplication.
     func createPost(postDescription: String, postImage: Data?) {
         let postRef = REF_POSTS.childByAutoId()
         let postKey = postRef.key
         
-        var imageUrl: URL? = nil
-        
         if let postImage = postImage {
-            imageUrl = DataService.instance.save(image: postImage, as: postKey)
-            if imageUrl == nil {
-                 // Image did not upload correctly. Throw error.
-            }
+            save(image: postImage, as: postKey, completion: { url, error in
+                if let error = error {
+                    print(error) // Image did not upload correctly.
+                } else if let url = url {
+                    let post = Post(username: "Bob the Tester", description: postDescription, imageUrl: url.absoluteString)
+                    postRef.setValue(post.asDictionary)
+                }
+            })
+        } else {
+            let post = Post(username: "Bob the Tester", description: postDescription, imageUrl: nil)
+            postRef.setValue(post.asDictionary)
         }
-        
-        let post = Post(username: "Bob the Tester", description: postDescription, imageUrl: imageUrl?.absoluteString)
-        postRef.setValue(post.asDictionary)
     }
     
-    //TODO: Add completion handler for errors
-    func save(image: Data, as postKey: String) -> URL? {
+    func save(image: Data, as postKey: String, completion: @escaping (_ url: URL?,_ error: Error?) -> ()) {
         let imageRef = REF_IMAGES.child("\(postKey).jpg")
-        var downloadUrl: URL? = nil
         imageRef.put(image, metadata: nil, completion: { metadata, error in
             if let error = error {
-                print(error) // We have a problem
+                completion(nil, error)
             } else if let metadata = metadata {
-                downloadUrl = metadata.downloadURL()
+                completion(metadata.downloadURL(),nil)
             }
         })
-        return downloadUrl
     }
 }
