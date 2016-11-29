@@ -28,6 +28,7 @@ class PostTableViewCell: UITableViewCell {
     
     func configureCell(_ post: Post, image: UIImage?) {
         self.post = post
+        postImage.isHidden = true
         
         userNameLabel.text = post.username
         likeCountLabel.text = "\(post.likes)"
@@ -41,16 +42,14 @@ class PostTableViewCell: UITableViewCell {
             request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
                 if let data = responseData.data {
                     if let image = UIImage(data: data) {
+                        self.postImage.isHidden = false
                         self.postImage.image = image
                         FeedViewController.imageCache.setObject(image, forKey: url as NSString)
                     }
                 }
             })
             
-        } else {
-            postImage.isHidden = true
         }
-        
         
     }
     

@@ -21,6 +21,8 @@ class FeedViewController: UIViewController {
         feedTableView.delegate = self
         feedTableView.dataSource = self
         
+        feedTableView.estimatedRowHeight = 300
+        
         // FIXME: Loads every post ever made. Limit to most recent posts.
         DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous updates from other users.
@@ -67,7 +69,16 @@ class FeedViewController: UIViewController {
 }
 
 extension FeedViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let post = posts[indexPath.row]
+        
+        //FIXME: Row height should be calculated dynamically to fit contents.
+        if post.imageUrl == nil {
+            return 175
+        } else {
+            return feedTableView.estimatedRowHeight
+        }
+    }
 }
 
 extension FeedViewController: UITableViewDataSource {
