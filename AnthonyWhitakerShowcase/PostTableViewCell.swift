@@ -22,6 +22,13 @@ class PostTableViewCell: UITableViewCell {
         
     }
     
+    func configureCell(_ post: Post) {
+        userNameLabel.text = post.username
+        likeCountLabel.text = "\(post.likes)"
+        postText.text = post.postDescription
+//        postImage.image = UIImage(post.imageUrl)
+    }
+    
     override func draw(_ rect: CGRect) {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
 //        postImage.sizeToFit()

@@ -12,6 +12,7 @@ import FirebaseDatabase
 class FeedViewController: UIViewController {
     
     @IBOutlet weak var feedTableView: UITableView!
+    var posts = [Post]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +20,24 @@ class FeedViewController: UIViewController {
         feedTableView.delegate = self
         feedTableView.dataSource = self
         
+        // FIXME: Loads every post ever made. Limit to most recent posts.
         DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous updates from other users.
                 print(snapshot.value!)
+                
+                if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    for snap in snapshots {
+                        print("SNAP: \(snap)")
+                        
+                        if let postData = snap.value as? Dictionary<String, Any> {
+                            let postKey = snap.key
+                            if let post = Post(postKey: postKey, data: postData) {
+                                self.posts.append(post)
+                            }
+                        }
+                    }
+                }
+                  
                 self.feedTableView.reloadData()
             }
         })
@@ -51,10 +67,14 @@ extension FeedViewController: UITableViewDelegate {
 
 extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let post = posts[indexPath.row]
+        print(post.postDescription)
+        
         return tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostTableViewCell
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3BDE4ED8CE703623AF38005E /* Pods_AnthonyWhitakerShowcaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29D30130D3924A38128197C0 /* Pods_AnthonyWhitakerShowcaseUITests.framework */; };
 		8236E096B7FD60E4C3C41528 /* Pods_AnthonyWhitakerShowcase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E15AB360C7D925FE5EC4C694 /* Pods_AnthonyWhitakerShowcase.framework */; };
+		921E3CA31DED24B2009036AA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 921E3CA21DED24B2009036AA /* Post.swift */; };
 		926D4C501DE6248C006AE761 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C4F1DE6248C006AE761 /* AppDelegate.swift */; };
 		926D4C521DE6248C006AE761 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D4C511DE6248C006AE761 /* LogInViewController.swift */; };
 		926D4C551DE6248C006AE761 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C531DE6248C006AE761 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		29D30130D3924A38128197C0 /* Pods_AnthonyWhitakerShowcaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnthonyWhitakerShowcaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		352970A11B3D69D907BADC17 /* Pods-AnthonyWhitakerShowcaseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnthonyWhitakerShowcaseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnthonyWhitakerShowcaseTests/Pods-AnthonyWhitakerShowcaseTests.release.xcconfig"; sourceTree = "<group>"; };
 		795D34A9CDE3814BAA0FD4F1 /* Pods-AnthonyWhitakerShowcaseUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnthonyWhitakerShowcaseUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnthonyWhitakerShowcaseUITests/Pods-AnthonyWhitakerShowcaseUITests.release.xcconfig"; sourceTree = "<group>"; };
+		921E3CA21DED24B2009036AA /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		926D4C4C1DE6248C006AE761 /* AnthonyWhitakerShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnthonyWhitakerShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		926D4C4F1DE6248C006AE761 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		926D4C511DE6248C006AE761 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		926D4C801DE62585006AE761 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				921E3CA21DED24B2009036AA /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				926D4C951DE63751006AE761 /* Constants.swift in Sources */,
+				921E3CA31DED24B2009036AA /* Post.swift in Sources */,
 				926D4C581DE6248C006AE761 /* AnthonyWhitakerShowcase.xcdatamodeld in Sources */,
 				926D4C971DE642E5006AE761 /* MaterialButton.swift in Sources */,
 				926D4C521DE6248C006AE761 /* LogInViewController.swift in Sources */,
