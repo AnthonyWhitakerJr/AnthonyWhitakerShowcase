@@ -32,18 +32,16 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         
         // Automatically sign in the user.
         GIDSignIn.sharedInstance().signInSilently()
-        
-        // TODO(developer) Configure the sign-in button look/feel
-        // ...
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
-            self.performSegue(withIdentifier: Segue.loggedIn.rawValue, sender: nil)
-        }
+        // Check if user is already logged in.
+        //TODO: Refactor. Does not account for expired sessions or logging out. Replace with silent login attempt.
+//        if UserDefaults.standard.value(forKey: KEY_UID) != nil {
+//            self.performSegue(withIdentifier: Segue.loggedIn.rawValue, sender: nil)
+//        }
     }
     
     @IBAction func emailSignInAttempted(_ sender: UIButton) {
@@ -53,7 +51,7 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if let error = error as? NSError {
                     switch error.code {
-                    case FIRAuthErrorCode.errorCodeUserNotFound.rawValue:
+                    case FIRAuthErrorCode.errorCodeUserNotFound.rawValue: // User not found. Create new user.
                         FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                             if let error = error as? NSError {
                                 switch error.code {
@@ -61,11 +59,11 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
                                     self.showErrorAlert(title: "Weak Password", message: "Password should be at least 6 characters.")
                                 default:
                                     self.showErrorAlert(title: "Could not create account", message: "Problem creating account. Try something else.")
+                                    print(error)
                                 }
-                                print(error)
+                            } else if let user = user {
+                                self.signIn(as: user)
                             }
-                            
-                            self.signIn(as: user)
                         })
                     case FIRAuthErrorCode.errorCodeInvalidEmail.rawValue:
                         self.showErrorAlert(title: "Invalid Email Format", message: "The email address is badly formatted.")
@@ -74,12 +72,10 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
                     default:
                         print(error)
                     }
-                } else {
+                } else if let user = user {
                     self.signIn(as: user)
                 }
             })
-            
-            
         } else {
             showErrorAlert(title: "Email and Password Required", message: "You must enter an email address and a password.")
         }
@@ -92,8 +88,11 @@ class LogInViewController: UIViewController, GIDSignInUIDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func signIn(as user: FIRUser?) {
-        UserDefaults.standard.set(user?.uid, forKey: KEY_UID)
+    func signIn(as user: FIRUser) {
+        let userData = ["provider": user.providerID]
+        DataService.instance.createFireBaseUser(uid: user.uid, user: userData)
+        
+        UserDefaults.standard.set(user.uid, forKey: KEY_UID)
         self.performSegue(withIdentifier: Segue.loggedIn.rawValue, sender: nil)
     }
     
@@ -112,7 +111,9 @@ extension LogInViewController : FBSDKLoginButtonDelegate {
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            self.signIn(as: user)
+            if let user = user {
+                self.signIn(as: user)
+            }
         }
     }
     public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
@@ -132,7 +133,9 @@ extension LogInViewController : GIDSignInDelegate {
                                                           accessToken: (authentication?.accessToken)!)
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            self.signIn(as: user)
+            if let user = user {
+                self.signIn(as: user)
+            }
         }
     }
     

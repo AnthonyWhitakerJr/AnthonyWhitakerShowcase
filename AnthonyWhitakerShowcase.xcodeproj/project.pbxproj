@@ -28,6 +28,7 @@
 		926D4C9B1DE65734006AE761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C9A1DE65734006AE761 /* GoogleService-Info.plist */; };
 		926D4C9C1DE65734006AE761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C9A1DE65734006AE761 /* GoogleService-Info.plist */; };
 		926D4C9D1DE65734006AE761 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926D4C9A1DE65734006AE761 /* GoogleService-Info.plist */; };
+		92D1B3E11DEC742E00116DB4 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1B3E01DEC742E00116DB4 /* DataService.swift */; };
 		92D856B61DE77E01009F35B1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D856B51DE77E01009F35B1 /* FeedViewController.swift */; };
 		92D856B81DE780BB009F35B1 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D856B71DE780BB009F35B1 /* PostTableViewCell.swift */; };
 		B303022913533EEDBBC256C2 /* Pods_AnthonyWhitakerShowcaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9431D025B415A39C6A06E48 /* Pods_AnthonyWhitakerShowcaseTests.framework */; };
@@ -78,6 +79,7 @@
 		926D4C961DE642E5006AE761 /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
 		926D4C981DE648A3006AE761 /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		926D4C9A1DE65734006AE761 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92D1B3E01DEC742E00116DB4 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		92D856B51DE77E01009F35B1 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		92D856B71DE780BB009F35B1 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		92D856B91DEA7804009F35B1 /* AnthonyWhitakerShowcase-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AnthonyWhitakerShowcase-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		926D4C4E1DE6248C006AE761 /* AnthonyWhitakerShowcase */ = {
 			isa = PBXGroup;
 			children = (
+				92D1B3DF1DEC742000116DB4 /* Services */,
 				926D4C821DE6258F006AE761 /* Controller */,
 				926D4C801DE62585006AE761 /* Model */,
 				926D4C831DE62595006AE761 /* Resources */,
@@ -230,6 +233,14 @@
 				926D4C941DE63751006AE761 /* Constants.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		92D1B3DF1DEC742000116DB4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				92D1B3E01DEC742E00116DB4 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		E84639E3981907758CB03330 /* Pods */ = {
@@ -530,6 +541,7 @@
 				92D856B61DE77E01009F35B1 /* FeedViewController.swift in Sources */,
 				926D4C991DE648A3006AE761 /* MaterialTextField.swift in Sources */,
 				92D856B81DE780BB009F35B1 /* PostTableViewCell.swift in Sources */,
+				92D1B3E11DEC742E00116DB4 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +614,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -651,6 +664,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
