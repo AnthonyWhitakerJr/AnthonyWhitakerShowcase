@@ -13,6 +13,7 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var feedTableView: UITableView!
     var posts = [Post]()
+    static var imageCache = NSCache<NSString, UIImage>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +48,7 @@ class FeedViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         // Potentially dispose of extra posts.
+        // TODO: Dump cache
         // May have issue with several large images being scaled down.
         // TODO: Ensure images are scaled properly before being uploaded/downloaded.
     }
@@ -79,7 +81,15 @@ extension FeedViewController: UITableViewDataSource {
         print(post.postDescription)
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostTableViewCell {
-            cell.configureCell(post)
+            cell.request?.cancel()
+            
+            var image: UIImage?
+            
+            if let url = post.imageUrl {
+                image = FeedViewController.imageCache.object(forKey: url as NSString)
+            }
+            
+            cell.configureCell(post, image: image)
             return cell
         }
         

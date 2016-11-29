@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class PostTableViewCell: UITableViewCell {
     
@@ -18,19 +19,39 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImage: UIImageView!
     
     var post: Post!
+    var request: Request?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
     
-    func configureCell(_ post: Post) {
+    func configureCell(_ post: Post, image: UIImage?) {
         self.post = post
         
         userNameLabel.text = post.username
         likeCountLabel.text = "\(post.likes)"
         postText.text = post.postDescription
-//        postImage.image = UIImage(post.imageUrl)
+        
+        if let url = post.imageUrl {
+            if let image = image {
+                postImage.image = image
+            }
+            
+            request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
+                if let data = responseData.data {
+                    if let image = UIImage(data: data) {
+                        self.postImage.image = image
+                        FeedViewController.imageCache.setObject(image, forKey: url as NSString)
+                    }
+                }
+            })
+            
+        } else {
+            postImage.isHidden = true
+        }
+        
+        
     }
     
     override func draw(_ rect: CGRect) {
