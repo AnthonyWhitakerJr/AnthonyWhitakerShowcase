@@ -98,40 +98,15 @@ class DataService {
         }
     }
     
-    func isLikedByCurrentUser(post: Post) -> Bool {
-        var result = false
-        let likeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
-        print(likeRef!.url)
-//        likeRef?.observeSingleEvent(of: .value , with: { snapshot in
-//            if let value = snapshot.value as? Bool {
-//                print(value)
-//                result = value
-//            }
-//        })
-        
-        isLiked(ref: likeRef!, completion: {ans in result = ans})
-        print("\(post.postKey) is liked: \(result)")
-        return result
-    }
-    
     func isLikedByCurrentUser(post: Post, completion: @escaping (_: Bool) -> ()){
         let likeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
-        print(likeRef!.url)
-                likeRef?.observeSingleEvent(of: .value , with: { snapshot in
-                    let value = snapshot.value as? Bool
-                    let ans = value == nil ? false : value!
-                    completion(ans)
-                })
-    }
-    
-    func isLiked(ref: FIRDatabaseReference, completion: @escaping (_ : Bool)->()) {
-        ref.observeSingleEvent(of: .value , with: { snapshot in
-            if let value = snapshot.value as? Bool {
-                print(value)
-                completion(value)
-            }
+        likeRef?.observeSingleEvent(of: .value , with: { snapshot in
+            let value = snapshot.value as? Bool
+            let ans = value == nil ? false : value!
+            completion(ans)
         })
     }
+
     
     // FIXME: Corruptable by concurrent mods. Implement transaction block.
     func updateLikes(for post: Post, wasLiked: Bool) {
