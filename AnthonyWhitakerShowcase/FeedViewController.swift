@@ -83,11 +83,7 @@ class FeedViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        // Potentially dispose of extra posts.
         // TODO: Dump cache
-        // May have issue with several large images being scaled down.
-        // TODO: Ensure images are scaled properly before being uploaded/downloaded.
     }
     
 
