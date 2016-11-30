@@ -194,13 +194,13 @@
 		926D4C811DE6258A006AE761 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				929EE1C91DEE3F0000EDF2C3 /* FavoriteButton.swift */,
 				926D4C5B1DE6248C006AE761 /* LaunchScreen.storyboard */,
 				926D4C531DE6248C006AE761 /* Main.storyboard */,
 				926D4C911DE636B7006AE761 /* MaterialView.swift */,
 				926D4C961DE642E5006AE761 /* MaterialButton.swift */,
 				926D4C981DE648A3006AE761 /* MaterialTextField.swift */,
 				92D856B71DE780BB009F35B1 /* PostTableViewCell.swift */,
-				929EE1C91DEE3F0000EDF2C3 /* FavoriteButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

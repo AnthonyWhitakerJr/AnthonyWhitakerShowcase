@@ -101,10 +101,48 @@ class DataService {
     func isLikedByCurrentUser(post: Post) -> Bool {
         var result = false
         let likeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
-        likeRef?.observeSingleEvent(of: .value , with: { snapshot in
-            result = (snapshot.value as? NSNull) != nil
-        })
+        print(likeRef!.url)
+//        likeRef?.observeSingleEvent(of: .value , with: { snapshot in
+//            if let value = snapshot.value as? Bool {
+//                print(value)
+//                result = value
+//            }
+//        })
+        
+        isLiked(ref: likeRef!, completion: {ans in result = ans})
+        print("\(post.postKey) is liked: \(result)")
         return result
+    }
+    
+    func isLikedByCurrentUser(post: Post, completion: @escaping (_: Bool) -> ()){
+        let likeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
+        print(likeRef!.url)
+                likeRef?.observeSingleEvent(of: .value , with: { snapshot in
+                    let value = snapshot.value as? Bool
+                    let ans = value == nil ? false : value!
+                    completion(ans)
+                })
+    }
+    
+    func isLiked(ref: FIRDatabaseReference, completion: @escaping (_ : Bool)->()) {
+        ref.observeSingleEvent(of: .value , with: { snapshot in
+            if let value = snapshot.value as? Bool {
+                print(value)
+                completion(value)
+            }
+        })
+    }
+    
+    // FIXME: Corruptable by concurrent mods. Implement transaction block.
+    func updateLikes(for post: Post, wasLiked: Bool) {
+        let userLikeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
+        if wasLiked {
+            userLikeRef?.setValue(true)
+            REF_POSTS.child(post.postKey).child(Post.DataKey.likes.rawValue).setValue(post.likes + 1)
+        } else {
+            userLikeRef?.removeValue()
+            REF_POSTS.child(post.postKey).child(Post.DataKey.likes.rawValue).setValue(post.likes - 1)
+        }
     }
     
     func save(profileImage image: Data, as profileKey: String, completion: @escaping (_ url: URL?,_ error: Error?) -> ()) {

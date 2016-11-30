@@ -12,10 +12,11 @@ class FavoriteButton: UIButton {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        contentMode = .scaleAspectFit
-        contentHorizontalAlignment = .center
-        contentVerticalAlignment = .center
+    
+        contentHorizontalAlignment = .fill
+        contentVerticalAlignment = .fill
+        contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
+
         setImage(#imageLiteral(resourceName: "favoriteIcon"), for: .normal)
         setImage(#imageLiteral(resourceName: "favoriteIconSelected"), for: .selected)
     }

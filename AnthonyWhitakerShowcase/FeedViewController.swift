@@ -35,7 +35,6 @@ class FeedViewController: UIViewController {
         // FIXME: Loads every post ever made. Limit to most recent posts.
         DataService.instance.REF_POSTS.observe(.value, with: {snapshot in
             if snapshot.value != nil { // FIXME: Potential to destabilize UI with numerous updates from other users.
-                print(snapshot.value!)
                 self.posts.removeAll()
                 
                 if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {

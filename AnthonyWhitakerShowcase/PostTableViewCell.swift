@@ -13,7 +13,7 @@ class PostTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var likeButton: FavoriteButton!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var postText: UITextView!
     @IBOutlet weak var postImage: UIImageView!
@@ -23,9 +23,8 @@ class PostTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
-    
+
     func configureCell(_ post: Post, image: UIImage?) {
         self.post = post
         postImage.isHidden = true
@@ -48,10 +47,20 @@ class PostTableViewCell: UITableViewCell {
                     }
                 }
             })
-            
         }
         
+        // FIXME: Potentially corrupted by fast scrolling. Mirror request handling seen above.
+        DataService.instance.isLikedByCurrentUser(post: post, completion: { result in
+            self.likeButton.isSelected = result
+        })
+        
     }
+    
+    @IBAction func likeButtonPressed(_ sender: FavoriteButton) {
+        sender.toggleSelected()
+        DataService.instance.updateLikes(for: post, wasLiked: sender.isSelected)
+    }
+    
     
     override func draw(_ rect: CGRect) {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
