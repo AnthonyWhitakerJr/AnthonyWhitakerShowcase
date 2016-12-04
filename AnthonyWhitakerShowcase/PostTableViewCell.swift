@@ -36,17 +36,17 @@ class PostTableViewCell: UITableViewCell {
         if let url = post.imageUrl {
             if let image = image {
                 postImage.image = image
-            }
-            
-            request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
-                if let data = responseData.data {
-                    if let image = UIImage(data: data) {
-                        self.postImage.isHidden = false
-                        self.postImage.image = image
-                        FeedViewController.imageCache.setObject(image, forKey: url as NSString)
+            } else {
+                request = Alamofire.request(url).validate(contentType: ["image/*"]).responseData(completionHandler: { responseData in
+                    if let data = responseData.data {
+                        if let image = UIImage(data: data) {
+                            self.postImage.isHidden = false
+                            self.postImage.image = image
+                            FeedViewController.imageCache.setObject(image, forKey: url as NSString)
+                        }
                     }
-                }
-            })
+                })
+            }
         }
         
         // FIXME: Potentially corrupted by fast scrolling. Mirror request handling seen above.
