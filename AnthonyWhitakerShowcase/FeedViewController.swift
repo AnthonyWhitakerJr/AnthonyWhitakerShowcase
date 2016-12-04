@@ -123,14 +123,8 @@ extension FeedViewController: UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostTableViewCell {
             cell.request?.cancel()
-            
-            var image: UIImage?
-            
-            if let url = post.imageUrl {
-                image = FeedViewController.imageCache.object(forKey: url as NSString)
-            }
-            
-            cell.configureCell(post, image: image)
+                        
+            cell.configureCell(post, imageCache: FeedViewController.imageCache)
             return cell
         }
         
