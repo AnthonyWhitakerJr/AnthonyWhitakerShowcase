@@ -16,42 +16,13 @@ import FirebaseAuth
 class DataService {
     static let instance = DataService()
     
-    private var _REF_DATABASE: FIRDatabaseReference
-    private var _REF_POSTS: FIRDatabaseReference
-    private var _REF_USERS: FIRDatabaseReference
-    private var _REF_STORAGE: FIRStorageReference
-    private var _REF_IMAGES: FIRStorageReference
-    private var _REF_IMAGES_POSTS: FIRStorageReference
-    private var _REF_IMAGES_PROFILES: FIRStorageReference
-
-    
-    var REF_BASE : FIRDatabaseReference {
-        return _REF_DATABASE
-    }
-    
-    var REF_POSTS : FIRDatabaseReference {
-        return _REF_POSTS
-    }
-    
-    var REF_USERS : FIRDatabaseReference {
-        return _REF_USERS
-    }
-    
-    var REF_STORAGE : FIRStorageReference {
-        return _REF_STORAGE
-    }
-    
-    var REF_IMAGES : FIRStorageReference {
-        return _REF_IMAGES
-    }
-    
-    var REF_IMAGES_POSTS : FIRStorageReference {
-        return _REF_IMAGES_POSTS
-    }
-    
-    var REF_IMAGES_PROFILES : FIRStorageReference {
-        return _REF_IMAGES_PROFILES
-    }
+    private(set) var REF_DATABASE: FIRDatabaseReference
+    private(set) var REF_POSTS: FIRDatabaseReference
+    private(set) var REF_USERS: FIRDatabaseReference
+    private(set) var REF_STORAGE: FIRStorageReference
+    private(set) var REF_IMAGES: FIRStorageReference
+    private(set) var REF_IMAGES_POSTS: FIRStorageReference
+    private(set) var REF_IMAGES_PROFILES: FIRStorageReference
     
     /// Database reference for current user's data. Returns `nil` if user is not logged in.
     var REF_USER_CURRENT: FIRDatabaseReference? {
@@ -64,13 +35,13 @@ class DataService {
     }
     
     private init() {
-        _REF_DATABASE = FIRDatabase.database().reference()
-        _REF_POSTS = _REF_DATABASE.child("posts")
-        _REF_USERS = _REF_DATABASE.child("users")
-        _REF_STORAGE = FIRStorage.storage().reference(forURL: "gs://anthonywhitakershowcase.appspot.com")
-        _REF_IMAGES = _REF_STORAGE.child("images")
-        _REF_IMAGES_POSTS = _REF_IMAGES.child("posts")
-        _REF_IMAGES_PROFILES = _REF_IMAGES.child("profiles")
+        REF_DATABASE = FIRDatabase.database().reference()
+        REF_POSTS = REF_DATABASE.child("posts")
+        REF_USERS = REF_DATABASE.child("users")
+        REF_STORAGE = FIRStorage.storage().reference(forURL: "gs://anthonywhitakershowcase.appspot.com")
+        REF_IMAGES = REF_STORAGE.child("images")
+        REF_IMAGES_POSTS = REF_IMAGES.child("posts")
+        REF_IMAGES_PROFILES = REF_IMAGES.child("profiles")
     }
     
     func createFireBaseUser(uid: String, user: Dictionary<String, String>) {
@@ -99,7 +70,7 @@ class DataService {
     }
     
     func isLikedByCurrentUser(post: Post, completion: @escaping (_: Bool) -> ()){
-        let likeRef = DataService.instance.REF_USER_CURRENT?.child("likes").child(post.postKey)
+        let likeRef = REF_USER_CURRENT?.child("likes").child(post.postKey)
         likeRef?.observeSingleEvent(of: .value , with: { snapshot in
             let value = snapshot.value as? Bool
             let ans = value == nil ? false : value!
